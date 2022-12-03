@@ -1,0 +1,21 @@
+<section id="educacion">
+  <h2 class="titulo">Educacion:</h2>
+    <div class="row" *ngFor="let educacion of estudios">
+     <h3 class="encabezado3" data-aos="fade-right">
+     <div>
+      <ul>
+        <li> 
+          <h2>
+            <img [src]="educacion.logo" width="100">
+          </h2>
+          <h3>{{educacion.nombre}}</h3>
+          <h4>{{educacion.institucion}}</h4>
+          <h5>{{educacion.fechaDeInicio}} - {{educacion.fechaDeFinalizacion}}</h5>
+        </li>
+        <br>
+      </ul>
+     </div>
+     </h3>
+   </div>
+  </section>
+  <br>

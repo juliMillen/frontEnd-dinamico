@@ -1,0 +1,128 @@
+{
+    "banner":"./assets/img/banner2.png",
+    "presentacion": "¡Bienvenido a mi Portfolio Web!",
+    "nombre": "Julian Ariel",
+    "apellido": "Millen",
+    "puesto": "Desarrollador Web Full Stack Jr",
+"redes":[
+  {
+    "id":0,
+    "icono": "fa-linkedin",
+    "direccion": "https://www.linkedin.com/in/julianmillen/"
+   },
+   {
+    "id":1,
+    "icono": "fa-github",
+    "direccion":"https://github.com/juliMillen"
+   },
+   {
+    "id":2,
+    "icono": "fa-instagram",
+    "direccion":"https://www.instagram.com/julianmillen/"
+   },
+   {
+    "id":3,
+    "icono": "fa-twitter",
+    "direccion":"https://twitter.com/julianmillenn"
+   }
+ ],
+
+ "sobreMi": [
+    {
+
+        "fotoPerfil":"./assets/img/fotoPerfil.jpg",
+        "descripcion": "Estudiante de la Tecnicatura Universitaria en Programacion y actualmente realizando el curso de Argentina Programa, con nivel de ingles intermedio(escrito) y un gran interes por los desafios y el aprendizaje. Soy una persona proactiva, me adapto a los cambios y trabajo muy bien en grupo."
+    }
+ ],
+ 
+
+ "estudios": [
+    {
+        "id":0,
+        "logo":"./assets/img/logoiela.png",
+        "nombre": "Bachiller Orientado En Ciencias Naturales",
+        "institucion": "Colegio Martin Lutero",
+        "fechaDeInicio": "2012",
+        "fechaDeFinalizacion": "2017" 
+    },
+
+    {
+        "id":1,
+        "logo":"./assets/img/utn-parana.png",
+        "nombre": "Tecnicatura Universitaria en Programacion",
+        "institucion": "UTN Facultad Reginal Parana",
+        "fechaDeInicio": "2021",
+        "fechaDeFinalizacion": "actualidad"
+    },
+
+    {
+       "id":2,
+       "logo":"./assets/img/APLogo-20-20.png",
+       "nombre": "Argentina programa parte 1",
+       "institucion": "CESSI",
+       "fechaDeInicio": "enero de 2022",
+       "fechaDeFinalizacion": "abril de 2022"
+    },
+
+    {
+        "id":3,
+        "logo":"./assets/img/APLogo-20-20.png",
+        "nombre": "Argentina programa parte 2",
+        "institucion":"CESSI",
+        "fechaDeInicio": "junio de 2022",
+        "fechaDeFinalizacion": "actualidad"
+    },
+    {
+        "id":4,
+        "nombre":"Actualizar 4.0",
+        "institucion":"Subsecretaria de Ciencia y Trabajo de la municipalidad de Paraná",
+        "fechaDeInicio": "agosto de 2021",
+        "fechaDeFinalizacion": "septiembre de 2021"
+    }
+ ],
+
+ "habilidades": [
+    {
+        "id":0,
+        "nombre":"JavaScript",
+        "porcentaje":"40",
+        "color": "bg-success"
+       
+    },
+    {
+        "id":1,
+        "nombre":"HTML",
+        "porcentaje":"75",
+        "color":"bg-success"
+    },
+    {
+        "id":2,
+        "nombre":"CSS",
+        "porcentaje":"75",
+        "color":"bg-success"
+
+    },
+    {
+        "id":3,
+        "nombre":"Angular",
+        "porcentaje":"50",
+        "color":"bg-success"
+
+    },
+    {
+        "id":4,
+        "nombre":"C#",
+        "porcentaje":"75",
+        "color":"bg-success"
+        
+
+    },
+    {
+        "id":5,
+        "nombre":"Java",
+        "porcentaje":"40",
+        "color":"bg-success"   
+    }
+
+ ]
+}

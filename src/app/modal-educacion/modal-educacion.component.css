@@ -1,0 +1,13 @@
+#educa{
+    transform: translateY(100px);
+    color:rgb(56, 165, 80);
+}
+
+#educa:hover{
+    background-color: rgb(128, 245, 157);
+    transition: 0.5s;
+}
+
+.modal-body, .modal-header, .modal-footer{
+    background-color:antiquewhite;
+}

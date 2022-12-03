@@ -1,0 +1,54 @@
+ <!-- Modal -->
+
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          </button>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+        <div class="modal-body"> <!--aca arranca el formulario-->
+          <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">
+              <i class="fa-solid fa-envelope"></i>
+            </label>
+            <div class="col-sm-10">
+              <input type="email" formControlName="email" class="form-control" id="staticEmail" value="email@ejemplo.com" [class.border-danger]="EmailInValid" [class.border-success]="EmailValid">
+            </div>
+            <!--Gracias el getter que configuramos en el controlador-->
+            <div *ngIf="Email?.errors && Email?.touched">
+              <p *ngIf="Email?.hasError('required')" class="error">
+                El mail es requerido.
+              </p>
+              <p *ngIf="Email?.hasError('email')" class="error">
+                El formato del mail debe ser valido.
+              </p>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">
+              <i class="fa-solid fa-lock"></i>
+            </label>
+            <div class="col-sm-10">
+              <input type="password" formControlName="password" class="form-control" id="inputPassword" required value=".........." [class.border-danger]="PasswordInValid" [class.border-success]="PasswordValid" >
+            </div>
+            <div *ngIf="Password?.errors && Password?.touched">
+              <p *ngIf="Password?.hasError('required')" class="error">
+                ¡La contraseña es requerida!
+              </p>
+              <p *ngIf="Password?.errors?.['minlenght']" class="error"> <!--aca deberia tomarme error cuando no alcance el minimo de caracteres-->
+                ¡La contraseña debe contener minimo 8 caracteres!
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success" data-bs="modal"> Iniciar Sesión</button>
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>

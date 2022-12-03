@@ -1,0 +1,27 @@
+section.dashboard{
+    margin-top: 7.5rem;
+}
+
+.navbar-vertical{
+    float: left;
+    margin-left: -0.5cm;
+    margin-top: 0.5cm;
+   
+}
+
+li.vertical{
+    display:block;
+    margin: 0;
+    writing-mode: vertical;
+    transform: rotateZ(50s);
+    padding:25px 12px;
+    color:rgb(136, 58, 6);
+    font-size: 1.25rem;
+    
+}
+
+.a, a:hover {
+background-color:rgb(204, 107, 17);
+transition: 0.5s;
+text-decoration:none;
+}

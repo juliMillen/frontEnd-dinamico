@@ -1,0 +1,5 @@
+.list-group-item{
+    --bs-list-group-border-width:transparent;
+    background-color:transparent;
+    --bs-link-color:black;
+}

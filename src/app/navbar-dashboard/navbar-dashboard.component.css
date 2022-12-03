@@ -1,0 +1,10 @@
+.nav-link:hover{
+    background-color:rgb(250, 175, 84);
+    transition: 0.5s;
+}
+
+.navbar.navbar-expand-lg.bg-secondary{
+    background-color:blanchedalmond !important;
+    }
+
+

@@ -1,0 +1,11 @@
+.list-group-item{
+    --bs-list-group-border-width:transparent;
+    background-color:transparent;
+    --bs-link-color:black;
+}
+
+
+.list-group-item:hover{
+background-color:rgb(204, 107, 17);
+transition: 0.5s;
+}

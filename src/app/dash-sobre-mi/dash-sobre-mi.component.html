@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4"></div>
+        <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8"></div>
+    </div>
+  </div>
+  <section id="informacion" class="container">
+    <div class="row">
+    </div>
+    <div class="container text-center">
+      <div class="row"*ngFor="let datosSobreMi of sobreMi">
+        <div class="col-3"><app-modal-foto-perfil></app-modal-foto-perfil>
+          <img [src]="datosSobreMi.fotoPerfil" alt="foto perfil" class="rounded-circle img-fluid">
+        </div>
+        <div class="col-9 mt-5" >
+          <h2 class="encabezado2 mt-5">
+            {{datosSobreMi.descripcion}}
+          </h2>
+          <app-modal-sobre-mi></app-modal-sobre-mi>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr>

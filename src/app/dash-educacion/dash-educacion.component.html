@@ -1,0 +1,21 @@
+<section id="educacion"> 
+    <div class="row"*ngFor="let educacion of estudios">
+     <h3 class="encabezado3"><i class="fa-solid fa-pen-to-square fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#exampleEducacion" id="educa"></i>
+     <div>
+      <ul>
+        <li>
+          <h2>
+            <img [src]="educacion.logo" width="100">
+          </h2>
+          <h3>{{educacion.nombre}}</h3>
+          <h4>{{educacion.institucion}}</h4>
+          <h5>{{educacion.fechaDeInicio}} - {{educacion.fechaDeFinalizacion}}</h5>
+        </li>
+      </ul>
+     </div>
+      </h3>
+   </div>
+  </section>
+  <app-modal-educacion></app-modal-educacion>
+  <br>
+

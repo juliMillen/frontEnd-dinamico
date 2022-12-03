@@ -1,0 +1,25 @@
+.navbar.navbar-expand-lg.bg-secondary{
+    background-color:blanchedalmond !important;
+    }
+    
+    .navbar-nav{
+        padding:2px;
+        font-family: 'Passion One', cursive;
+    }
+    .nav-link{
+        padding:8px 12px;
+        border-radius: 5px;
+        color:rgb(136, 58, 6);
+    }
+    
+    
+    .nav-link:hover{
+        background-color:rgb(250, 175, 84);
+        transition: 0.5s;
+    }
+
+    .list-group-item:hover{
+        background-color:rgb(204, 107, 17);
+        transition: 0.5s;
+        }
+

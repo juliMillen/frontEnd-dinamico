@@ -1,0 +1,11 @@
+<div>
+  <h2 class="titulo">Habilidades:</h2>
+</div>
+<section id="skills" class="container" data-aos="fade-up-right"*ngFor="let habilidad of habilidades">
+    <h2 id="habilidadesBasicas">{{habilidad.nombre}}</h2>
+    <br>
+    <!--Iteracion sobre la variable de instancia y presentacion de datos mediante interpolacion-->
+    <div class="progress mb-5"  >
+      <div class="progress-bar progress-bar-striped progress-bar-animated" [ngClass]="habilidad.color" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style.width.%]="habilidad.porcentaje">{{habilidad.porcentaje}}%</div>
+    </div>
+</section>

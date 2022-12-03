@@ -1,0 +1,13 @@
+#contact{
+    transform: translateX(950px);
+    color: rgb(56, 165, 80);
+}
+
+#contact:hover{
+    background-color: rgb(128, 245, 157);
+    transition: 0.5s;
+}
+
+.modal-body, .modal-header, .modal-footer{
+    background-color:antiquewhite;
+}
