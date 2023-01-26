@@ -6,18 +6,54 @@
           <h5 class="modal-title">Educacion</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-           <form>
+           <form [formGroup]="form" *ngFor="let educacion of estudios" >
+            <span>{{educacion.id}}. {{educacion.nombre|uppercase}}</span>
               <div class="modal-body">
                 <div>
-                  <label for="formFileMultiple" class="form-label text-black">Nombre: </label>
-                  <input class="form-control" type="text" id="formFileMultiple" multiple>
                   <label for="formFileMultiple" class="form-label text-black">Logo: </label>
-                  <input class="form-control text-white" type="file" id="formFileMultiple" multiple>
+                  <input class="form-control" type="file" id="formFileMultiple" multiple [class.border-danger]="LogoInValid" [class.border-success]="LogoValid">
+
+                  <label for="formFileMultiple" class="form-label text-black">Institucion: </label>
+                  <input class="form-control text-black" type="text" id="formFileMultiple" multiple [class.border-danger]="InstitucionInValid" [class.border-success]="InstitucionValid">
+
+                  <label for="formFileMultiple" class="form-label text-black">Nombre de la carrera o curso: </label>
+                  <input class="form-control text-black" type="text" id="formFileMultiple" multiple [class.border-danger]="NombreInValid" [class.border-success]="NombreValid">
+
+                  <label for="formFileMultiple" class="form-label text-black">Fecha de Incio: </label>
+                  <input class="form-control text-black" type="text" id="formFileMultiple" multiple [class.border-danger]="FechaInicioInValid" [class.border-success]="FechaInicioValid">
+
+                  <label for="formFileMultiple" class="form-label text-black">Fecha de Finalizacion: </label>
+                  <input class="form-control text-black" type="text" id="formFileMultiple" multiple [class.border-danger]="FechaFinalizacionInValid" [class.border-success]="FechaFinalizacionValid">
+
+                </div>
+
+                <div *ngIf="Logo?.errors && Logo?.touched">
+                  <p *ngIf="Logo?.hasError('required')" class="error">
+                    Se requiere una URl.
+                  </p>
+                </div>
+
+                <div *ngIf="Institucion?.errors && Institucion?.touched">
+                  <p *ngIf="Nombre?.hasError('required')" class="error">
+                    Se requiere el nombre de una institucion.
+                  </p>
+                </div>
+
+                <div *ngIf="Nombre?.errors && Nombre?.touched">
+                  <p *ngIf="Nombre?.hasError('required')" class="error">
+                    Se requiere el nombre de la carrera o curso.
+                  </p>
+                </div>
+
+                <div *ngIf="FechaInicio?.errors && FechaInicio?.touched">
+                  <p *ngIf="Nombre?.hasError('required')" class="error">
+                    Se requiere la fecha de inicio.
+                  </p>
                 </div>
               </div>
                <div class="modal-footer">
-               <button type="submit" class="btn btn-success">Actualizar</button>
-               <button type="submit" class="btn btn-danger">Eliminar</button>
+               <button type="submit" class="btn btn-light" (click)="Update()" [disabled]="form.invalid"> Actualizar</button>
+               <button type="submit" class="btn btn-success" (click)="EliminarEducacion()">Eliminar</button>
                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
               </div>
            </form>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DatosService } from '../servicios/datos.service';
-import * as AOS from 'aos';
+import { Habilidad } from '../entidades/habilidad';
+import { HabilidadService } from '../servicios/habilidad.service';
 
 @Component({
   selector: 'app-habilidades',
@@ -9,16 +9,16 @@ import * as AOS from 'aos';
 })
 export class HabilidadesComponent implements OnInit {
   //inicializamos variables de instancia
-  habilidades:any=[];
+  habilidades:Habilidad[]=[];
 
-  constructor(private datosHabilidades:DatosService) { }
+
+  constructor(private sHabilidades:HabilidadService) { }
 
   ngOnInit(): void {
-    this.datosHabilidades.getDatos().subscribe(data =>{
-       this.habilidades=data.habilidades;
+    this.sHabilidades.list().subscribe(data =>{
+       this.habilidades=data;
     })
 
-    AOS.init();
   }
 
 }

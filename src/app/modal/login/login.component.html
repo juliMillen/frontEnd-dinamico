@@ -8,14 +8,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
           </button>
         </div>
-        <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+        <form [formGroup]="form" (ngSubmit)="OnLogin()" novalidate>
         <div class="modal-body"> <!--aca arranca el formulario-->
           <div class="mb-3 row">
-            <label for="staticEmail" class="col-sm-2 col-form-label">
+            <label for="nombreUsuario" class="col-sm-2 col-form-label">
               <i class="fa-solid fa-envelope"></i>
             </label>
             <div class="col-sm-10">
-              <input type="email" formControlName="email" class="form-control" id="staticEmail" value="email@ejemplo.com" [class.border-danger]="EmailInValid" [class.border-success]="EmailValid">
+              <input type="email" formControlName="email" class="form-control" id="nombreUsuario" name="nombreUsuario"  [class.border-danger]="EmailInValid" [class.border-success]="EmailValid" [(ngModel)]="nombreUsuario" required>
             </div>
             <!--Gracias el getter que configuramos en el controlador-->
             <div *ngIf="Email?.errors && Email?.touched">
@@ -28,11 +28,11 @@
             </div>
           </div>
           <div class="mb-3 row">
-            <label for="inputPassword" class="col-sm-2 col-form-label">
+            <label for="password" class="col-sm-2 col-form-label">
               <i class="fa-solid fa-lock"></i>
             </label>
             <div class="col-sm-10">
-              <input type="password" formControlName="password" class="form-control" id="inputPassword" required value=".........." [class.border-danger]="PasswordInValid" [class.border-success]="PasswordValid" >
+              <input type="password" formControlName="password" class="form-control" id="password" required  [class.border-danger]="PasswordInValid" [class.border-success]="PasswordValid" [(ngModel)]="password" required >
             </div>
             <div *ngIf="Password?.errors && Password?.touched">
               <p *ngIf="Password?.hasError('required')" class="error">

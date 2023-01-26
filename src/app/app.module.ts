@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -24,14 +24,14 @@ import { ModalFotoPerfilComponent } from './modal-foto-perfil/modal-foto-perfil.
 import { ModalSobreMiComponent } from './modal-sobre-mi/modal-sobre-mi.component';
 import { ModalEducacionComponent } from './modal-educacion/modal-educacion.component';
 import { ModalHabilidadesComponent } from './modal-habilidades/modal-habilidades.component';
-import { ModalContactoComponent } from './modal-contacto/modal-contacto.component';
 import { ModalRedesComponent } from './modal-redes/modal-redes.component';
 import { DashbannerComponent } from './dashbanner/dashbanner.component';
 import { DashSobreMiComponent } from './dash-sobre-mi/dash-sobre-mi.component';
 import { DashEducacionComponent } from './dash-educacion/dash-educacion.component';
 import { DashHabilidadesComponent } from './dash-habilidades/dash-habilidades.component';
-import { DashContactoComponent } from './dash-contacto/dash-contacto.component';
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
+import { InterceptorProvider } from './servicios/interceptor.service';
+import { DatosService } from './servicios/datos.service';
 
 
 @NgModule({
@@ -55,13 +55,11 @@ import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
     ModalSobreMiComponent,
     ModalEducacionComponent,
     ModalHabilidadesComponent,
-    ModalContactoComponent,
     ModalRedesComponent,
     DashbannerComponent,
     DashSobreMiComponent,
     DashEducacionComponent,
     DashHabilidadesComponent,
-    DashContactoComponent,
     PaginaErrorComponent,
   ],
   imports: [
@@ -70,7 +68,10 @@ import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
     HttpClientModule,
     FormsModule, ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    DatosService,
+    InterceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

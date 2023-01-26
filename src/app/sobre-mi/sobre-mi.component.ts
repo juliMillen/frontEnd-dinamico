@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DatosService } from '../servicios/datos.service';
+import { PersonaService } from '../servicios/persona.service';
+import { Persona } from '../entidades/persona';
 import * as AOS from 'aos';
 
 @Component({
@@ -8,15 +9,13 @@ import * as AOS from 'aos';
   styleUrls: ['./sobre-mi.component.css']
 })
 export class SobreMiComponent implements OnInit {
-   sobreMi:any;
-  constructor(private datosSobreMi:DatosService) { }
+  personas: Persona []=[];
+  constructor(private datosSobreMi:PersonaService) { }
 
   ngOnInit(): void {
-    this.datosSobreMi.getDatos().subscribe(data =>{
-      this.sobreMi= data.sobreMi;
-    })
-
-    AOS.init();
+    this.datosSobreMi.list().subscribe(info =>{
+      this.personas = info;
+    }),
+    AOS.init()
   }
-
 }

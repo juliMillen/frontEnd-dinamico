@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DatosService } from '../servicios/datos.service';
+
+import { Educacion } from '../entidades/educacion';
 import * as AOS from 'aos';
+import { EducacionService } from '../servicios/educacion.service';
 
 @Component({
   selector: 'app-educacion',
@@ -10,12 +12,12 @@ import * as AOS from 'aos';
 export class EducacionComponent implements OnInit {
   // esto es para traer un array de datos
 
-   estudios:any;    // instanciando variable
-  constructor(private datosEducacion:DatosService) { }
+  estudios:Educacion[]=[];  // instanciando variable
+  constructor(private datosEducacion:EducacionService) { }
 
   ngOnInit(): void {
-    this.datosEducacion.getDatos().subscribe(data =>{
-      this.estudios= data.estudios;
+    this.datosEducacion.list().subscribe(data =>{
+      this.estudios= data;
     })
 
     AOS.init();

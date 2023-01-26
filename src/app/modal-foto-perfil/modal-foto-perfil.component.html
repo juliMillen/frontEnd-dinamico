@@ -1,18 +1,48 @@
 <!--MODAL FOTO PERFIL-->
-<i class="fa-solid fa-pen-to-square fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalPerfil" id="fotoPe"></i>
+ <!--<i class="fa-solid fa-pen-to-square fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalPerfil" id="fotoPe"></i>
 <div class="modal" id="exampleModalPerfil" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Editar foto de perfil</h5>
+          <h5 class="modal-title"> Editar perfil</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-            <form>
+            <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate>
               <div class="modal-body">
                 <div>
                    <label for="formFileMultiple" class="form-label text-black">¿Desea actualizar la foto de perfil o Eliminar la actual? </label>
-                   <input class="form-control text-white" type="file" id="formFileMultiple" multiple>   
+                   <input class="form-control text-black" type="file" id="formFileMultiple" multiple  [class.border-danger]="UrlFotoInValid" [class.border-success]="UrlFotoValid">   
                 </div>
+                <div *ngIf="UrlFoto?.errors && UrlFoto?.touched">
+                  <p *ngIf="Nombre?.hasError('required')" class="error">
+                    Se requiere una URl.
+                  </p>
+                </div>
+
+                <div>
+                  <label for="formFileMultiple" class="form-label text-black">¿Desea actualizar el nombre o Eliminar el nombre actual? </label>
+                  <input class="form-control text-black" type="file" id="formFileMultiple" multiple  [class.border-danger]="NombreInValid" [class.border-success]="NombreValid">   
+               </div>
+               <div *ngIf="Nombre?.errors && Nombre?.touched">
+                <p *ngIf="Nombre?.hasError('required')" class="error">
+                  El nombre es requerido.
+                </p>
+              </div>
+
+               <div>
+                <label for="formFileMultiple" class="form-label text-black">¿Desea actualizar el apellido o Eliminar el actual? </label>
+                <input class="form-control text-black" type="file" id="formFileMultiple" multiple  [class.border-danger]="ApellidoInValid" [class.border-success]="ApellidoValid">   
+             </div>
+             <div *ngIf="Apellido?.errors && Apellido?.touched">
+              <p *ngIf="Apellido?.hasError('required')" class="error">
+                El apellido es requerido.
+              </p>
+            </div>
+
+             <div>
+              <label for="formFileMultiple" class="form-label text-black">¿Desea actualizar la profesion o Eliminar la actual? </label>
+              <input class="form-control text-black" type="file" id="formFileMultiple" multiple>   
+           </div>
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-success">Actualizar</button>
@@ -22,4 +52,4 @@
             </form>
       </div>
     </div>
-  </div>
+  </div> -->

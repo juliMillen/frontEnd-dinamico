@@ -4,8 +4,9 @@ import { InicioComponent } from './inicio/inicio.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
 
+
 const routes: Routes = [
-  { path: 'inicio', component: InicioComponent},
+  { path: 'inicio', component: InicioComponent}, //canActivate:[GuardService]
   { path: 'dashboard', component: DashboardComponent } ,
   { path:'',redirectTo:'/inicio',pathMatch:'full' },
   { path:'**', component: PaginaErrorComponent}

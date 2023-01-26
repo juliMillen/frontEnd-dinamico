@@ -6,16 +6,33 @@
           <h5 class="modal-title">Redes</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-             <form>
+             <form [formGroup]="form"  *ngFor="let red of redes">
                 <div class="modal-body">
-                 <div>
-                     <label for="formFileMultiple" class="form-label text-black">¿Desea agregar una nueva red social? </label>
-                     <input class="form-control" type="text" id="formFileMultiple" multiple>
+                  <span>{{red.id}}. {{red.iconoR}}</span>
+
+                  <div class="mb-3">
+                    <label for="Icono Red" class="form-label">Icono de la Red Social:</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="icono obligatorio" formControlName="icoFont"
+                    [ngClass]="{'is-invalid': form.get('icoFont')?.errors && form.get('icoFont')?.touched, 'is-valid': form.get('icoFont')?.errors && form.get('icoFont')?.touched}">
+                    <p class="text-danger"
+                      *ngIf="form.get('icoFont')?.touched && form.get('icoFont')?.errors?.['required']">
+                      El icoFont es requerida.
+                    </p>
+                  </div>
+                 
+
+                  <div class="mb-3">
+                    <label for="URL Red" class="form-label">Url de la Red Social:</label>
+                    <input type="url" class="form-control" id="exampleFormControlInput1" placeholder="campo obligatorio" formControlName="url" [ngClass]="{'is-invalid': form.get('url')?.errors && form.get('url')?.touched, 'is-valid': form.get('url')?.errors && form.get('url')?.touched}">
+                    <p class="text-danger"
+                      *ngIf="form.get('url')?.touched && form.get('url')?.errors?.['required']">
+                     La URL es requerida.
+                    </p>
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="submit" class="btn btn-success">Actualizar</button>
-                  <button type="submit" class="btn btn-danger">Eliminar</button>
+                  <button type="submit" class="btn btn-success" (click)="Update()"[disabled]="form.invalid" >Actualizar</button>
+                  <button type="submit" class="btn btn-danger" (click)="EliminarRed()">Eliminar</button>
                   <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
                 </div>
              </form>

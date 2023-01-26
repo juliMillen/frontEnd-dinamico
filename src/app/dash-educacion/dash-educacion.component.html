@@ -1,16 +1,21 @@
+<div>
+  <h2 class="tituloE">Estudios:</h2>
+</div>
+
 <section id="educacion"> 
-    <div class="row"*ngFor="let educacion of estudios">
-     <h3 class="encabezado3"><i class="fa-solid fa-pen-to-square fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#exampleEducacion" id="educa"></i>
+    <div class="row"*ngFor="let Estudios of estudios">
+     <h3 class="encabezado3">
      <div>
       <ul>
         <li>
           <h2>
-            <img [src]="educacion.logo" width="100">
+            <img [src]="Estudios.logo" width="100">
           </h2>
-          <h3>{{educacion.nombre}}</h3>
-          <h4>{{educacion.institucion}}</h4>
-          <h5>{{educacion.fechaDeInicio}} - {{educacion.fechaDeFinalizacion}}</h5>
+          <h3>{{Estudios.nombre}}</h3>
+          <h4>{{Estudios.institucion}}</h4>
+          <h5>{{Estudios.fechaI}} - {{Estudios.fechaFin}}</h5>
         </li>
+        <i class="fa-solid fa-pen-to-square fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#exampleEducacion" id="educa"></i>
       </ul>
      </div>
       </h3>

@@ -7,15 +7,49 @@
           <h5 class="modal-title">Sobre Mi</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-            <form>
-              <div class="modal-body">
+            <form (formGroup)="form" name="persona"*ngFor="let persona of personas">
+              <div class="modal-body" >
                 <div>
                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>   
                 </div>
+                <span>{{persona.id}}. {{persona.nombre|uppercase}}</span>
+              </div>
+
+              <div class="mb-2">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="campo obligatorio" formControlName="nombre"
+                  (ngClass)="{'is-invalid': form.get('nombre')?.errors && form.get('nombre')?.touched, 'is-valid': form.get('nombre')?.errors && form.get('nombre')?.touched}">
+                <p class="text-danger" *ngIf="form.get('nombre')?.touched && form.get('nombre')?.errors?.['required']">
+                  El Nombre de la Persona es requerido.
+                </p>
+              </div>
+
+              <div class="mb-2">
+                <label for="titulo" class="form-label">Profesion</label>
+                <input type="text" class="form-control" id="titulo" placeholder="campo obligatorio" formControlName="titulo"
+                  (ngClass)="{'is-invalid': form.get('anio')?.errors && form.get('titulo')?.touched, 'is-valid': form.get('titulo')?.errors && form.get('titulo')?.touched}">
+                <p class="text-danger" *ngIf="form.get('titulo')?.touched && form.get('titulo')?.errors?.['required']">
+                  El Título es requerido.
+                </p>
+              </div>
+              <div class="mb-2">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="nombre" placeholder="campo obligatorio"
+                  formControlName="descripcion"
+                  (ngClass)="{'is-invalid': form.get('descripcion')?.errors && form.get('descripcion')?.touched, 'is-valid': form.get('descripcion')?.errors && form.get('descripcion')?.touched}">
+                <p class="text-danger"
+                  *ngIf="form.get('descripcion')?.touched && form.get('descripcion')?.errors?.['required']">
+                  La Descripción es requerida.
+                </p>
+              </div>    
+
+              <div class="mb-2">
+                <label for="imagenes" class="form-label">Imagen</label>
+                <input class="form-control" type="file" id="imagen"formControlName="imagen1">
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success">Actualizar</button>
-                <button type="submit" class="btn btn-danger">Eliminar</button>
+                <button type="submit" class="btn btn-success" (click)="guardar()"[disabled]="form.invalid">Actualizar</button>
+                <button type="submit" class="btn btn-danger" (click)="EliminarPersona(persona.id)">Eliminar</button>
                 <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
               </div>
             </form>

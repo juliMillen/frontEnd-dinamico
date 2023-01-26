@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DatosService } from '../servicios/datos.service';
+import { Persona } from '../entidades/persona';
+
+import { PersonaService } from '../servicios/persona.service';
+
 
 @Component({
   selector: 'app-dash-sobre-mi',
@@ -7,13 +10,18 @@ import { DatosService } from '../servicios/datos.service';
   styleUrls: ['./dash-sobre-mi.component.css']
 })
 export class DashSobreMiComponent implements OnInit {
-  sobreMi:any;
-  constructor(private datosSobreMi:DatosService) { }
+  persona:  Persona[]= [];
+    constructor(private sPersona:PersonaService) { }
 
   ngOnInit(): void {
-    this.datosSobreMi.getDatos().subscribe(data =>{
-      this.sobreMi= data.sobreMi;
-    })
+    
+    this.CargarNuevaPersona();
+  }
+
+  public CargarNuevaPersona():void{
+    this.sPersona.list().subscribe(data=>(
+     this.persona=data
+    ))
   }
 
 }
