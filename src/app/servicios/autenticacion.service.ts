@@ -5,11 +5,13 @@ import { NuevoUsuario } from '../entidades/nuevo-usuario';
 import { LoginUsuario } from '../entidades/login-usuario';
 import { JwtDto } from '../entidades/jwt-dto';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacionService {
   authUrl="http://localhost:8080/auth/";
+
 
   constructor( private httpClient:HttpClient) {
    }
@@ -21,6 +23,6 @@ export class AutenticacionService {
    public LoginUsuario(loginUsuario:LoginUsuario):Observable<JwtDto>{
     return this.httpClient.post<JwtDto>(this.authUrl + 'login', loginUsuario);
    }
-
+  
  
 }

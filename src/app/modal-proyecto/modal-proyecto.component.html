@@ -1,0 +1,48 @@
+ <!-- MODAL Educacion-->
+ <div class="modal" id="exampleProyecto" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Proyecto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+           <form [formGroup]="form" *ngFor="let proyec of proyecto" >
+            <span>{{proyec.id}}. {{proyec.nombre|uppercase}}</span>
+            <span class="d-flex justify-content-between gap-2"></span>
+            <button type="button" class="btn btn-sm btn-outline-success pl-1 pr-1 m-0" (click)="cargarDetail(proyec.id)">
+            <i class="fa-solid fa-pen-to-square fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#exampleProyecto" id="proyec"></i>
+            </button>
+              <div class="modal-body">
+                <div>
+
+                  <label for="formFileMultiple" class="form-label text-black">Nombre del Proyecto: </label>
+                  <input class="form-control text-black" type="text" id="formFileMultiple" multiple [class.border-danger]="NombreInValid" [class.border-success]="NombreValid">
+
+                  <label for="formFileMultiple" class="form-label text-black">Descripcion del Proyecto: </label>
+                  <input class="form-control text-black" type="text" id="formFileMultiple" multiple [class.border-danger]="NombreInValid" [class.border-success]="DescripcionValid">
+
+
+
+                </div> 
+
+                <div *ngIf="Nombre?.errors && Nombre?.touched">
+                  <p *ngIf="Nombre?.hasError('required')" class="error">
+                    Se requiere el nombre del proyecto
+                  </p>
+                </div>
+
+                <div *ngIf="Descripcion?.errors && Descripcion?.touched">
+                  <p *ngIf="Descripcion?.hasError('required')" class="error">
+                    Se requiere la descripcion de lo realizado en su proyecto
+                  </p>
+                </div>
+              </div>
+               <div class="modal-footer">
+               <button type="submit" class="btn btn-light" (click)="Update()" [disabled]="form.invalid"> Actualizar</button>
+               <button type="submit" class="btn btn-success" (click)="EliminarProyecto(proyec.id)">Eliminar</button>
+               <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+           </form>
+      </div>
+    </div>
+  </div>

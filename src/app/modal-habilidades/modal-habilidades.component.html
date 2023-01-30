@@ -1,5 +1,4 @@
    <!-- MODAL Habilidades-->
-   <i class="fa-solid fa-pen-to-square fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#exampleHabilidades" id="habi"></i>
    <div class="modal" id="exampleHabilidades" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -9,6 +8,10 @@
         </div>
             <form [formGroup]="form" *ngFor=" let habilidad of habilidades" >
               <span>{{habilidad.id}}. {{habilidad.nombre|uppercase}}</span>
+              <span class="d-flex justify-content-between gap-2"></span>
+              <button type="button" class="btn btn-sm btn-outline-success pl-1 pr-1 m-0" (click)="cargarDetail(habilidad.id)">
+                <i class="fa-solid fa-pen-to-square fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#exampleHabilidades" id="habi"></i>
+                </button>
               <div class="modal-body">
                 <div>
                    <label for="formFileMultiple" class="form-label text-black">Nombre: </label>
@@ -41,7 +44,7 @@
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-success" (click)="Update()" [disabled]="form.invalid">Actualizar</button>
-                <button type="submit" class="btn btn-danger" (click)="EliminarHabilidad()">Eliminar</button>
+                <button type="submit" class="btn btn-danger" (click)="EliminarHabilidad(habilidad.id)">Eliminar</button>
                 <button type="button" class="btn btn-warning" data-bs-dismiss="modal" >Cerrar</button>
               </div>
             </form>

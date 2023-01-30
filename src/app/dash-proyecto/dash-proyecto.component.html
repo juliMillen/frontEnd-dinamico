@@ -1,0 +1,21 @@
+<div>
+    <h2 class="tituloP">Proyecto:</h2>
+  </div>
+  
+  <section id="proyecto"> 
+      <div class="row"*ngFor="let proyec of proyecto">
+       <h3 class="encabezado3">
+       <div>
+        <ul>
+          <li>
+            <h3>{{proyec.nombre}}</h3>
+            <h4>{{proyec.descripcion}}</h4>
+          </li>
+        <!--<i class="fa-solid fa-pen-to-square fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#exampleEducacion" id="proyec"></i>-->
+        </ul>
+       </div>
+        </h3>
+     </div>
+    </section>
+    <app-modal-proyecto></app-modal-proyecto>
+    <br>

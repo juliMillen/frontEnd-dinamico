@@ -1,26 +1,26 @@
- <!-- MODAL Educacion-->
- <div class="modal" id="exampleEducacion" tabindex="-1">
+<!-- MODAL Educacion-->
+<div class="modal" id="exampleExperiencia" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Educacion</h5>
+          <h5 class="modal-title">Experiencia</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-           <form [formGroup]="form" *ngFor="let educacion of estudios" >
-            <span>{{educacion.id}}. {{educacion.nombre|uppercase}}</span>
+           <form [formGroup]="form" *ngFor="let exp of experiencia" >
+            <span>{{exp.id}}. {{exp.nombre|uppercase}}</span>
             <span class="d-flex justify-content-between gap-2"></span>
-            <button type="button" class="btn btn-sm btn-outline-success pl-1 pr-1 m-0" (click)="cargarDetail(educacion.id)">
-            <i class="fa-solid fa-pen-to-square fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#exampleEducacion" id="educa"></i>
+            <button type="button" class="btn btn-sm btn-outline-success pl-1 pr-1 m-0" (click)="cargarDetail(exp.id)">
+            <i class="fa-solid fa-pen-to-square fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#exampleExperiencia" id="exp"></i>
             </button>
               <div class="modal-body">
                 <div>
                   <label for="formFileMultiple" class="form-label text-black">Logo: </label>
                   <input class="form-control" type="file" id="formFileMultiple" multiple [class.border-danger]="LogoInValid" [class.border-success]="LogoValid">
 
-                  <label for="formFileMultiple" class="form-label text-black">Institucion: </label>
+                  <label for="formFileMultiple" class="form-label text-black">Institucion o Empresa: </label>
                   <input class="form-control text-black" type="text" id="formFileMultiple" multiple [class.border-danger]="InstitucionInValid" [class.border-success]="InstitucionValid">
 
-                  <label for="formFileMultiple" class="form-label text-black">Nombre de la carrera o curso: </label>
+                  <label for="formFileMultiple" class="form-label text-black">Nombre del puesto desempeñado: </label>
                   <input class="form-control text-black" type="text" id="formFileMultiple" multiple [class.border-danger]="NombreInValid" [class.border-success]="NombreValid">
 
                   <label for="formFileMultiple" class="form-label text-black">Fecha de Incio: </label>
@@ -57,10 +57,11 @@
               </div>
                <div class="modal-footer">
                <button type="submit" class="btn btn-light" (click)="Update()" [disabled]="form.invalid"> Actualizar</button>
-               <button type="submit" class="btn btn-success" (click)="EliminarEducacion(educacion.id)">Eliminar</button>
+               <button type="submit" class="btn btn-success" (click)="EliminarExperiencia(exp.id)">Eliminar</button>
                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
               </div>
            </form>
       </div>
     </div>
   </div>
+

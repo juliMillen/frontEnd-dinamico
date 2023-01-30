@@ -9,7 +9,10 @@
              <form [formGroup]="form"  *ngFor="let red of redes">
                 <div class="modal-body">
                   <span>{{red.id}}. {{red.iconoR}}</span>
-
+                  <span class="d-flex justify-content-between gap-2"></span>
+                  <button type="button" class="btn btn-sm btn-outline-success pl-1 pr-1 m-0" (click)="cargarDetail(red.id)">
+                    <i class="fa-solid fa-pen-to-square fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#exampleRedes" id="rsociales"></i>
+                  </button>
                   <div class="mb-3">
                     <label for="Icono Red" class="form-label">Icono de la Red Social:</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="icono obligatorio" formControlName="icoFont"
@@ -32,7 +35,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-success" (click)="Update()"[disabled]="form.invalid" >Actualizar</button>
-                  <button type="submit" class="btn btn-danger" (click)="EliminarRed()">Eliminar</button>
+                  <button type="submit" class="btn btn-danger" (click)="EliminarRed(red.id)">Eliminar</button>
                   <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
                 </div>
              </form>

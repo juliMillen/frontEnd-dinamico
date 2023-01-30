@@ -12,10 +12,10 @@ export class HabilidadService {
   constructor(private httpClient:HttpClient) { }
 
   public list():Observable<Habilidad[]>{
-    return this.httpClient.get<Habilidad[]>(this.url + 'list');
+    return this.httpClient.get<Habilidad[]>(this.url + 'ver');
   }
 
-  public detail(id:number):Observable<Habilidad[]>{
+  public detail(id?:number):Observable<Habilidad[]>{
     return this.httpClient.get<Habilidad[]>(this.url + `lista/${id}`);
   }
 

@@ -1,0 +1,25 @@
+<div>
+    <h2 class="tituloExp">Experiencia:</h2>
+  </div>
+  
+  <section id="experiencia"> 
+      <div class="row"*ngFor="let exp of experiencia">
+       <h3 class="encabezado3">
+       <div>
+        <ul>
+          <li>
+            <h2>
+              <img [src]="exp.logo" width="100">
+            </h2>
+            <h3>{{exp.nombre}}</h3>
+            <h4>{{exp.institucion}}</h4>
+            <h5>{{exp.fechaI}} - {{exp.fechaFin}}</h5>
+          </li>
+        <!--<i class="fa-solid fa-pen-to-square fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#exampleEducacion" id="educa"></i>-->
+        </ul>
+       </div>
+        </h3>
+     </div>
+    </section>
+    <app-modal-experiencia></app-modal-experiencia>
+    <br>

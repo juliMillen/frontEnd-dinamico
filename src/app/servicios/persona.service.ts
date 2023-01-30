@@ -16,20 +16,20 @@ export class PersonaService {
     return this.httpClient.get<Persona[]>(this.url + 'lista');
   }
 
-  public detail(id:number):Observable<Persona[]>{
-    return this.httpClient.get<Persona[]>(this.url + `detail/${id}`);
+  public detail(id?:number):Observable<Persona[]>{
+    return this.httpClient.get<Persona[]>(this.url + `ver/${id}`);
   }
 
   public create(persona:Persona):Observable<any>{
-    return this.httpClient.post<any>(this.url + 'create', persona);
+    return this.httpClient.post<any>(this.url + 'crear', persona);
   }
 
   public delete(id:number):Observable<any>{
-    return this.httpClient.delete<any>(this.url + `delete/${id}`); 
+    return this.httpClient.delete<any>(this.url + `borrar/${id}`); 
   }
 
   public update(persona:Persona):Observable<any>{
-    return this.httpClient.put<any>(this.url + `update/$`, persona);
+    return this.httpClient.put<any>(this.url + `edit/$`, persona);
 
   }
 }

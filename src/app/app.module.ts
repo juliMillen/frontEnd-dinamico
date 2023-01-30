@@ -32,6 +32,10 @@ import { DashHabilidadesComponent } from './dash-habilidades/dash-habilidades.co
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
 import { InterceptorProvider } from './servicios/interceptor.service';
 import { DatosService } from './servicios/datos.service';
+import { DashExperienciaComponent } from './dash-experiencia/dash-experiencia.component';
+import { DashProyectoComponent } from './dash-proyecto/dash-proyecto.component';
+import { ModalExperienciaComponent } from './modal-experiencia/modal-experiencia.component';
+import { ModalProyectoComponent } from './modal-proyecto/modal-proyecto.component';
 
 
 @NgModule({
@@ -61,6 +65,10 @@ import { DatosService } from './servicios/datos.service';
     DashEducacionComponent,
     DashHabilidadesComponent,
     PaginaErrorComponent,
+    DashExperienciaComponent,
+    DashProyectoComponent,
+    ModalExperienciaComponent,
+    ModalProyectoComponent,
   ],
   imports: [
     BrowserModule,

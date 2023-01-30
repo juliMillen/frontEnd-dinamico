@@ -28,9 +28,10 @@ export class ModalSobreMiComponent implements OnInit {
 
   public CargarPersona():void{
     this.sPersona.list().subscribe(data=>(this.personas=data));
+    this.form.reset();
   }
 
-  cargarDetail(id: number) {
+  cargarDetail(id?: number) {
     this.sPersona.detail(id).subscribe(
       {
         next: (data) => {

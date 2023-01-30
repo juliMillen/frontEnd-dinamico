@@ -16,6 +16,7 @@ habilidades: Habilidad[]=[];
 
   constructor( private sHabilidad:HabilidadService, private formBuilder:FormBuilder) { 
     this.form=this.formBuilder.group({
+      id:[''],
       nombre:['',[Validators.required]],
       porcentaje:['',[Validators.required, Validators.min(0),Validators.max(100)]],
       color:['',Validators.required]
@@ -25,6 +26,7 @@ habilidades: Habilidad[]=[];
 
   ngOnInit(): void {
     this.CargarHabilidad();
+    this.form.reset();
   }
 
   get Nombre(){
@@ -72,7 +74,7 @@ habilidades: Habilidad[]=[];
     )
   }
 
-  cargarDetalail(id: number) {
+  cargarDetail(id?: number) {
     this.sHabilidad.detail(id).subscribe(
       {
         next: (data) => {

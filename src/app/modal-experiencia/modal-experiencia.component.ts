@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import{ FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Educacion } from '../entidades/educacion';
-import { EducacionService } from '../servicios/educacion.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Experiencia } from '../entidades/experiencia';
+import { Validators } from '@angular/forms';
+import { ExperienciaService } from '../servicios/experiencia.service';
 
 @Component({
-  selector: 'app-modal-educacion',
-  templateUrl: './modal-educacion.component.html',
-  styleUrls: ['./modal-educacion.component.css']
+  selector: 'app-modal-experiencia',
+  templateUrl: './modal-experiencia.component.html',
+  styleUrls: ['./modal-experiencia.component.css']
 })
-export class ModalEducacionComponent implements OnInit {
-form:FormGroup
-estudios:Educacion[]=[];
-  constructor(private formBuilder:FormBuilder, private sEducacion:EducacionService) 
-  { 
+export class ModalExperienciaComponent implements OnInit {
+  form:FormGroup;
+  experiencia:Experiencia[]=[];
+
+  constructor(private formBuilder:FormBuilder, private sExperiencia:ExperienciaService) {
     this.form=this.formBuilder.group({
       id:[''],
       logo:[''],
@@ -20,12 +21,11 @@ estudios:Educacion[]=[];
       nombre:['',[Validators.required]],
       fechaInicio: ['', [Validators.required]],
       fechaFinalizacion: ['']
-    })
-
+   })
   }
 
   ngOnInit(): void {
-    this.CargarEducacion();
+    this.CargarExperiencia();
     this.form.reset();
   }
 
@@ -90,16 +90,16 @@ estudios:Educacion[]=[];
     return this.FechaFinalizacion?.valid;
   }
 
-  CargarEducacion(): void {
-    this.sEducacion.list().subscribe(
+  CargarExperiencia(): void {
+    this.sExperiencia.list().subscribe(
       data => {
-        this.estudios = data;
+        this.experiencia = data;
       }
     )
   }
 
   cargarDetail(id?: number) {
-    this.sEducacion.detail(id).subscribe(
+    this.sExperiencia.detail(id).subscribe(
       {
         next: (data) => {
           this.form.setValue(data);
@@ -115,22 +115,22 @@ estudios:Educacion[]=[];
 
   Update() {
     console.log("FUNCIONA!!!")
-    let edu = this.form.value;
+    let exp = this.form.value;
     console.log()
 
-    if (edu.id == '') {
-      this.sEducacion.create(edu).subscribe(
+    if (exp.id == '') {
+      this.sExperiencia.create(exp).subscribe(
         data => {
-          alert("Su nueva Educación fue añadida correctamente");
-          this.CargarEducacion();
+          alert("Su nueva Experiencia fue añadida correctamente");
+          this.CargarExperiencia();
           this.form.reset();
         }
       )
     } else {
-      this.sEducacion.update(edu).subscribe(
+      this.sExperiencia.update(exp).subscribe(
         data => {
-          alert("Educación editada!!! UIHUUU!!!!");
-          this.CargarEducacion();
+          alert("Experiencia editada!");
+          this.CargarExperiencia();
           this.form.reset();
         }
       )
@@ -139,15 +139,15 @@ estudios:Educacion[]=[];
 
  
 
-  public EliminarEducacion(id?:number){
+  public EliminarExperiencia(id?:number){
     if(id != undefined){
-      this.sEducacion.delete(id).subscribe(data=>{
+      this.sExperiencia.delete(id).subscribe(data=>{
         //alerta para que diga que se ha eliminado correctamente
-        this.CargarEducacion();
+        this.CargarExperiencia();
         this.form.reset();
       }, error=>{
-        alert("no se ha podido eliminar la educacion");
-        this.CargarEducacion();
+        alert("no se ha podido eliminar la experiencia");
+        this.CargarExperiencia();
         this.form.reset();
       })
     }

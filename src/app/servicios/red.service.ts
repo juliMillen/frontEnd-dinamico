@@ -7,15 +7,15 @@ import { Redsocial } from '../entidades/redsocial';
   providedIn: 'root'
 })
 export class RedService {
-  url:string="http://localhost:8080/red/";
+  url:string="http://localhost:8080/redes/";
   constructor(private httpClient:HttpClient) { }
 
   public list():Observable<Redsocial[]>{
-    return this.httpClient.get<Redsocial[]>(this.url + 'lista');
+    return this.httpClient.get<Redsocial[]>(this.url + 'ver');
   }
 
-  public detail(id:number):Observable<Redsocial[]>{
-    return this.httpClient.get<Redsocial[]>(this.url + `ver/${id}`);
+  public detail(id?:number):Observable<Redsocial[]>{
+    return this.httpClient.get<Redsocial[]>(this.url + `lista/${id}`);
   }
 
   public create(redsocial:Redsocial):Observable<any>{

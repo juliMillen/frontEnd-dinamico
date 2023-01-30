@@ -22,6 +22,7 @@ export class ModalRedesComponent implements OnInit {
 
   ngOnInit(): void {
     this.CargarRed();
+    this.form.reset();
   }
 
   CargarRed(): void {
@@ -32,7 +33,7 @@ export class ModalRedesComponent implements OnInit {
     )
   }
 
-  cargarDetalail(id: number) {
+  cargarDetail(id?: number) {
     this.sRedes.detail(id).subscribe(
       {
         next: (data) => {

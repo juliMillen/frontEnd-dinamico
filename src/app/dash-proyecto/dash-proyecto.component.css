@@ -1,0 +1,17 @@
+#proyecto{
+    transform:translateX(50px) ;
+    transition: cubic-bezier(0.19, 1, 0.22, 1);
+}
+.encabezado3{
+    color: aliceblue;
+    font-family: 'Courgette', cursive;
+}
+
+#proyec{
+    color: rgb(56,165,80);
+}
+
+.tituloP{
+    color: aliceblue;
+    font-family: 'Courgette', cursive;
+}
